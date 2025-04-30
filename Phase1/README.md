@@ -1,6 +1,4 @@
 # Phase 1 Work
-Thanks! Here's your updated `README.md` report with **SSH** as the selected vulnerable service instead of FTP:
-
 ---
 
 # Phase 1: Setup and Compromise the Service
@@ -29,11 +27,11 @@ We executed the command nmap -sV 192.168.56.101 to perform a service version sca
   ![لقطة شاشة 2025-04-29 230105](https://github.com/user-attachments/assets/aba89bfb-3d89-4f8a-a34e-79832e7815d6)
 
 
-- **Tools Used:**
-  - Metasploit Framework
-  - Nmap
-  - Hydra
-  - Python (for custom script)
+#### Tools Used:
+- Metasploit Framework
+- Nmap
+- Hydra
+- Python 3 with Paramiko library
     
 ---
 
@@ -44,26 +42,6 @@ We executed the command nmap -sV 192.168.56.101 to perform a service version sca
 
 ---
 
-## 3. Task 1.1 – Compromise Using Metasploit
-
-- Scanned the target machine using `nmap` to identify open ports.
-
-![لقطة شاشة 2025-04-29 230118](https://github.com/user-attachments/assets/20f0d103-8a20-4df2-9e9c-70f95b7f92df)
-- 
-- Discovered SSH running on port 22.
-- 
-- Searched SSH mosules: search openssh
-
-
-
-- Used Metasploit module: `auxiliary/scanner/ssh/ssh_login`
-- Set `RHOSTS`, `USERNAME`, `PASSWORD`, and ran the scanner.
-- Gained shell access using the default credentials (`msfadmin:msfadmin`).
-
-**✅ Deliverable:**  
-- [✓] Screenshot of Metasploit showing successful SSH login. *(Insert screenshot here)*
-
----
 ## Service Enumeration
 
 We scanned the target machine using `nmap` to identify open ports and determine which services were running.
@@ -92,13 +70,13 @@ Steps to exploit the SSH service:
 4. Configure the module:
    ```
    set RHOSTS 192.168.56.101
-   set USERNAME msfadmin
-   set PASSWORD msfadmin
+   set USER_FILE user.txt
+   set PASS_FILE pass.txt
    run
    ```
 5. Successful login confirms service compromise.
 
-## 4. Task 1.2 – Compromise Using Custom Script
+## Task 1.2 – Compromise Using Custom Script
 
 - Developed a **Python script** that:
   - Brute-forces SSH login using a small credentials list.
@@ -108,10 +86,6 @@ Steps to exploit the SSH service:
 - Utilized the `paramiko` library for SSH connections.
 - Demonstrated successful login to the victim system using weak credentials.
 
-**✅ Deliverables:**  
-- [✓] Screenshot of custom script. *(Insert screenshot here)*  
-- [✓] Screenshot showing successful SSH access using the script. *(Insert screenshot here)*
-
 ---
 
 ## 5. Conclusion
@@ -120,15 +94,5 @@ We successfully exploited the SSH service running on Metasploitable3 using:
 1. **Metasploit**, leveraging known default credentials.
 2. A **custom Python script**, automating the brute-force and login process.
 
-This validates the critical need to avoid weak/default credentials and enforce SSH hardening practices.
 
----
 
-## Notes
-
-- Ensure both virtual machines are on the same Host-Only or NAT Network for connectivity.
-- The attack demonstrated is conducted in a secure, educational lab environment and should not be replicated on production systems.
-
----
-
-Would you like help writing or reviewing the custom Python script (`paramiko` brute force) to include in your submission?
