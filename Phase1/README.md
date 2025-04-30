@@ -21,7 +21,7 @@ We executed the command nmap -sV 192.168.56.101 to perform a service version sca
 ![لقطة شاشة 2025-04-29 230118](https://github.com/user-attachments/assets/20f0d103-8a20-4df2-9e9c-70f95b7f92df)
 
 
-### 💻 Attacker Environment: Kali Linux
+### 💻 Attacker Environment: Kali Linuxs
 - **Platform:** VirtualBox on Windows
 - **IP Adress**: 192.168.56.102
   ![لقطة شاشة 2025-04-29 230105](https://github.com/user-attachments/assets/aba89bfb-3d89-4f8a-a34e-79832e7815d6)
