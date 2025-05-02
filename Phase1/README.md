@@ -78,9 +78,7 @@ Steps to exploit the SSH service:
 
 ## Task 1.2 – Compromise Using Custom Script
 
-## 🔐 Custom SSH Brute-Force Script (Python + Paramiko)
-
-This script automates brute-force login attempts to the SSH service using combinations from `user.txt` and `pass.txt`.
+# Custom SSH Brute-Force Script (Python + Paramiko)
 
 This script automates brute-force login attempts to the SSH service using combinations from `user.txt` and `pass.txt`.
 
