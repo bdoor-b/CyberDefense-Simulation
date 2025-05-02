@@ -119,7 +119,6 @@ with open(user_file, "r") as users:
                     exit(0)
                 time.sleep(1)  # Wait 1 second to avoid banner issues
 
-print("[*] Brute-force complete. No valid credentials found.")
 ```
 ---
 
