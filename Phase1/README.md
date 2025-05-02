@@ -82,6 +82,8 @@ Steps to exploit the SSH service:
 
 This script automates brute-force login attempts to the SSH service using combinations from `user.txt` and `pass.txt`.
 
+This script automates brute-force login attempts to the SSH service using combinations from `user.txt` and `pass.txt`.
+
 ```python
 import paramiko
 import time
@@ -117,7 +119,8 @@ with open(user_file, "r") as users:
                     exit(0)
                 time.sleep(1)  # Wait 1 second to avoid banner issues
 
- 
+print("[*] Brute-force complete. No valid credentials found.")
+```
 ---
 
 ## 5. Conclusion
