@@ -1,3 +1,5 @@
+# Phase 2: Visual Analysis with a SIEM Dashboard
+
 ##  Task 1: Integrate Logs from Victim Environment into SIEM (Splunk)
 
 ### Environment Setup
