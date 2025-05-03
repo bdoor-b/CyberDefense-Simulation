@@ -86,7 +86,8 @@ Then, we start to exploit:
    run
    ```
 5. Successful login confirms service compromise.
--Screen shot shown all the above steps:
+   
+***Screen shot shown all the above steps:***
 
 ![لقطة شاشة 2025-05-02 174003](https://github.com/user-attachments/assets/66bba784-ed18-418d-b479-883ae5f121df)
 
