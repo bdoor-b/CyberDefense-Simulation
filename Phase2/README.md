@@ -79,6 +79,36 @@ Here we can notice multiple `Failed password` attempts and one successful `Accep
 
 
 ---
+### Additional Visual Analysis
+To gain deeper insights, we broke down the SSH authentication events into separate visualizations:
+**Accepted SSH Logins Over Time**
+As shown in the picture, we use the query: 
+```
+index=* source="/var/log/auth.log" ("Accepted password") | timechart count
+
+```
+
+![PHOTO-2025-05-03-20-37-17 2](https://github.com/user-attachments/assets/ec9238b9-5f53-4edc-950b-116e13b74be1)
+ >This visualization shows 4 successful login events, all occurring on May 2, 2025. 
+
+**Failed SSH Logins Over Time**
+As shown in the picture, we use the query: 
+```
+index=* source="/var/log/auth.log" ("Failed password") | timechart count
+```
+![PHOTO-2025-05-03-20-37-17 3](https://github.com/user-attachments/assets/29f140f0-73a7-46f3-b558-78fc892c4280)
+ >The chart reveals a noticeable increase in failed login attempts on May 2, 2025.
+
+
+**Failed Login Attempts by Host**
+As shown in the picture, we use the query: 
+```
+index=* source="/var/log/auth.log" ("Failed password") | stats count by host
+```
+![PHOTO-2025-05-03-20-37-17](https://github.com/user-attachments/assets/18b88520-bef4-4cd2-b7e2-d8a7bb82d7e8)
+ >A total of 31 failed login attempts were recorded on the host metasploitable3-ub1404, confirming it was the primary target of the brute-force attack.
+
+
 
 ## Conclusion
 
