@@ -109,6 +109,6 @@ SSH became inaccessible from the banned attacker's IP, confirming the defense wo
 By deploying **Fail2Ban**, we successfully protected the SSH service on **Metasploitable3** from brute-force attacks.  
 This **reactive control** monitored login attempts and automatically banned malicious IPs, blocking further intrusion attempts.
 
-> ✅ After exceeding the allowed login failures, the attacker’s IP was blocked, fully mitigating the threat.
+> After exceeding the allowed login failures, the attacker’s IP was blocked, fully mitigating the threat.
 
 ---
