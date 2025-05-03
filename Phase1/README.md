@@ -42,7 +42,7 @@ We executed the command nmap -sV 192.168.100.138 to perform a service version sc
 ## 2. Selected Vulnerable Service
 
 - **Targeted Service:** SSH (Port 22)  
-- **Reason for Selection:** SSH on Metasploitable3 is configured with weak/default credentials, making it vulnerable to brute-force attacks or password reuse exploits.
+- **Reason for Selection:** SSH on Metasploitable3 is configured with weak and default credentials, making it vulnerable to brute-force attacks or password reuse exploits.
 
 ---
 
