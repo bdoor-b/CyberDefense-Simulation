@@ -36,15 +36,6 @@ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
 sudo nano /etc/fail2ban/jail.local
 ```
-[sshd]
-enabled = true
-port = ssh
-filter = sshd
-logpath = /var/log/auth.log
-maxretry = 6
-findtime = 600
-bantime = 600
-
 ![5](https://github.com/user-attachments/assets/1ea95e03-2603-46a2-81de-123e378aed9c)
 
 ![6](https://github.com/user-attachments/assets/0c14c455-54f2-45b9-a018-7cdece586a1f)
@@ -68,6 +59,7 @@ The same brute-force script from Phase 1 was re-executed.
 After several failed attempts, Fail2Ban detected and banned the attacker's IP.
 ![8](https://github.com/user-attachments/assets/010bb864-69a3-44c2-9875-a2986329a03b)
 
+Checking Fail2Ban Status Again:
 
 ![9](https://github.com/user-attachments/assets/62b3ae53-6df2-4842-a9ca-05b508dc953c)
 
