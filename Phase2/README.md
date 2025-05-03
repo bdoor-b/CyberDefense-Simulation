@@ -39,11 +39,14 @@ This output confirms that logs from the victim are actively being forwarded to t
 
 ---
 
-### 📸 Screenshot 2 – Raw Log Events from /var/log/auth.log
+### Screenshot 2 – Raw Log Events from /var/log/auth.log
+Log data from the victim successfully appears in Splunk, including authentication attempts, confirming full log integration.
 
-![Screenshot 2](./screenshots/auth-log-search.png)
+![لقطة شاشة 2025-05-02 173814](https://github.com/user-attachments/assets/c7ed600d-5ecf-4fdd-a69c-0f6a9b0642fc)
 
-> Log data from the victim successfully appears in Splunk, including authentication attempts, confirming full log integration.
+
+
+![لقطة شاشة 2025-05-02 173849](https://github.com/user-attachments/assets/6d68e6c5-78f9-4834-a68c-d8f63c91cce0)
 
 ---
 
