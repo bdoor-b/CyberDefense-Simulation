@@ -58,8 +58,11 @@ nmap -sV 192.168.56.101
 ## Task 1.1: Compromise Using Metasploit
 
 Steps to exploit the SSH service:
+
 First: Create a file for usernames and passwords: 
+
 ![لقطة شاشة 2025-05-02 181530](https://github.com/user-attachments/assets/103cc98c-6273-4264-be51-b00c8f8f042b)
+
 Then, we start to exploit: 
 1. Launch Metasploit:
    ```
@@ -84,6 +87,7 @@ Then, we start to exploit:
    ```
 5. Successful login confirms service compromise.
 -Screen shot shown all the above steps:
+
 ![لقطة شاشة 2025-05-02 174003](https://github.com/user-attachments/assets/66bba784-ed18-418d-b479-883ae5f121df)
 
 ## Task 1.2 – Compromise Using Custom Script
