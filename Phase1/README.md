@@ -136,7 +136,8 @@ with open(user_file, "r") as users:
                 time.sleep(1)  # Wait 1 second to avoid banner issues
 
 ```
-Then we excute the script, and as shown in the last line it was able to brute force the password correctly 
+The script was able to successfully brute-force the SSH credentials. As shown in the last line, it identified the correct username and password combination: vagrant:vagrant.
+
 ![لقطة شاشة 2025-05-02 181745](https://github.com/user-attachments/assets/0bd22377-6781-4f6e-8bbc-7b5b4d0df463)
 
 
