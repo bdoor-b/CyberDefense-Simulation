@@ -109,7 +109,7 @@ As shown in the picture, we use the query:
 index=* source="/var/log/auth.log" ("Failed password") | stats count by host
 ```
 ![PHOTO-2025-05-03-20-37-17](https://github.com/user-attachments/assets/18b88520-bef4-4cd2-b7e2-d8a7bb82d7e8)
- >A total of 31 failed login attempts were recorded on the host metasploitable3-ub1404, confirming it was the primary target of the brute-force attack.
+ >A total of 31 failed login attempts were recorded on the host metasploitable3, confirming it was the primary target of the brute-force attack.
 
 
 
