@@ -80,7 +80,7 @@ Then, we start to exploit:
    ```
 4. Configure the module:
    ```
-   set RHOSTS 192.168.56.101
+   set RHOSTS 192.168.100.138
    set USER_FILE user.txt
    set PASS_FILE pass.txt
    run
