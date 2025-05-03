@@ -52,7 +52,7 @@ We scanned the target machine using `nmap` to identify open ports and determine 
 
 Command used:
 ```
-nmap -sV 192.168.56.101
+nmap -sV 192.168.100.138
 ```
 ![لقطة شاشة 2025-05-02 174655](https://github.com/user-attachments/assets/3e9d89d4-12de-4791-a8d7-7e17c015532c)
 
