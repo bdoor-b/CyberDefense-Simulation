@@ -81,6 +81,9 @@ Here we can notice multiple `Failed password` attempts and one successful `Accep
 ---
 ### Additional Visual Analysis
 To gain deeper insights, we broke down the SSH authentication events into separate visualizations:
+
+
+
 **Accepted SSH Logins Over Time**
 As shown in the picture, we use the query: 
 ```
