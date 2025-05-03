@@ -28,6 +28,7 @@ Located the line PasswordAuthentication yes
 5️⃣ Disable PasswordAuthentication
 
 Changed setting to no
+
 ![6](https://github.com/user-attachments/assets/115c9cc0-e22b-429b-9306-b5f5cccc0222)
 
 
