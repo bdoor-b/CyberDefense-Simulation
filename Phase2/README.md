@@ -112,34 +112,10 @@ Additional queries helped track session transitions, `cron` jobs, and all releva
 
 ---
 
-## 📈 Summary of Achievements
-
-| Deliverable                              | Status      |
-| ---------------------------------------- | ----------- |
-| SIEM installed and configured            | ✅ Completed |
-| Log forwarding from victim               | ✅ Completed |
-| Brute-force attack executed and detected | ✅ Completed |
-| Post-exploitation behavior visualized    | ✅ Completed |
-| Splunk dashboard used for analysis       | ✅ Completed |
-
----
-
-## 📌 Conclusion
+## Conclusion
 
 Through this simulation, we successfully demonstrated the power of SIEM tools like Splunk in detecting and analyzing cyberattacks. The integration of system logs from Metasploitable3 enabled full visibility into brute-force login attempts and privilege escalation activity.
 
 Splunk allowed us to track attacker behavior in real-time, from initial login attempts to successful compromise and root access. These insights are critical in real-world cybersecurity monitoring and response.
 
 ---
-
-## 🧾 Appendix: Query Reference
-
-```spl
-index=* source="/var/log/auth.log" ("Failed password" OR "Accepted password")
-index=* source="/var/log/auth.log" sudo
-index=* source="/var/log/auth.log" session
-```
-
----
-
-Would you like this report exported as a **Word, PDF, or Markdown file** with all the screenshots embedded? I can generate and format it for you.
