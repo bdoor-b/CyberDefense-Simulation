@@ -94,6 +94,10 @@ Then, we start to exploit:
 
 # Custom SSH Brute-Force Script (Python + Paramiko)
 
+We create the python script using 
+```
+nano ssh_bruteforce.py
+```
 This script automates brute-force login attempts to the SSH service using combinations from `user.txt` and `pass.txt`.
 
 ```python
@@ -132,6 +136,10 @@ with open(user_file, "r") as users:
                 time.sleep(1)  # Wait 1 second to avoid banner issues
 
 ```
+Then we excute the script, and as shown in the last line it was able to brute force the password correctly 
+![لقطة شاشة 2025-05-02 181753](https://github.com/user-attachments/assets/d415a8f8-0df2-4979-85a7-52e538e8500d)
+![لقطة شاشة 2025-05-02 181745](https://github.com/user-attachments/assets/0bd22377-6781-4f6e-8bbc-7b5b4d0df463)
+
 ---
 
 ## 5. Conclusion
