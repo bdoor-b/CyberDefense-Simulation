@@ -78,40 +78,6 @@ Shows multiple `Failed password` attempts and one successful `Accepted password`
 
 ---
 
-### 🔐 Post-Exploitation Behavior
-
-After successful SSH access, the attacker escalated privileges using `sudo` to run administrative commands.
-
-####  Screenshot 4 – `sudo` Log Entry (Privilege Escalation)
-
-The attacker used `sudo` to execute a command with root access, indicating post-exploitation actions.
-
----
-
-### 🕒 Session Analysis
-
-Splunk also captured session opening and closing events, allowing timeline analysis of attacker behavior.
-
-#### 📸 Screenshot 5 – Session Events
-
-![Screenshot 5](./screenshots/session-logs.png)
-
-> These entries show the timeline of the `vagrant` user session and actions performed as root.
-
----
-
-### 🔄 Full Log Timeline from Victim
-
-Additional queries helped track session transitions, `cron` jobs, and all relevant `auth.log` entries.
-
-#### 📸 Screenshot 6 – Full Auth Log Timeline View
-
-![Screenshot 6](./screenshots/full-auth-log.png)
-
-> A broader view of system activity and authentication logs captured via `/var/log/auth.log`.
-
----
-
 ## Conclusion
 
 Through this simulation, we successfully demonstrated the power of SIEM tools like Splunk in detecting and analyzing cyberattacks. The integration of system logs from Metasploitable3 enabled full visibility into brute-force login attempts and privilege escalation activity.
