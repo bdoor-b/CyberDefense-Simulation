@@ -45,6 +45,8 @@ Applied changes by restarting SSH
 8️⃣ Validate Changes with Nmap
 
 Nmap confirms only publickey is supported now
+
+
 ![9-2](https://github.com/user-attachments/assets/13cd12b9-29a8-4d9f-a834-4bbcbcbe660c)
 
 
@@ -63,14 +65,14 @@ Even correct credentials are rejected after password login is disabled
 1️⃣ Scan Before Fail2Ban
 
 Nmap reveals open services including SSH
+![1](https://github.com/user-attachments/assets/e20a26f2-e003-4f22-a1d2-f0ca15182cb6)
 
-📸 1 using nmap to verify security status BEFORE.png
 
 2️⃣ Install Fail2Ban
 
 Installed via sudo apt install fail2ban -y
+![2](https://github.com/user-attachments/assets/00347e18-c8ae-41b0-a5b4-e0f1bfef4492)
 
-📸 2 installing fail2ban.png
 
 3️⃣ Copy Default Config & Edit jail.local
 
