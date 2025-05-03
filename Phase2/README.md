@@ -62,7 +62,7 @@ The victim (Metasploitable3) was subjected to a brute-force SSH attack using a c
 
 #### Splunk Search Query Used:
 
-```spl
+```
 index=* source="/var/log/auth.log" ("Failed password" OR "Accepted password")
 ```
 ![لقطة شاشة 2025-05-02 183845](https://github.com/user-attachments/assets/7722c254-c7db-473a-ba27-98d94314fde5)
@@ -70,7 +70,7 @@ index=* source="/var/log/auth.log" ("Failed password" OR "Accepted password")
 ---
 
 ### Screenshot 3 – Brute-force Attempt Visualization
-Shows multiple `Failed password` attempts and one successful `Accepted password` for user `vagrant`, confirming the brute-force succeeded.
+Here we can notice multiple `Failed password` attempts and one successful `Accepted password` for user `vagrant`, confirming the brute-force succeeded.
 
 
 ![لقطة شاشة 2025-05-02 183908](https://github.com/user-attachments/assets/cb5f8abe-561a-40a4-af00-8e7fa2ad7a4d)
