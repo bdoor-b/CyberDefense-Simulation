@@ -34,7 +34,6 @@ We executed the command nmap -sV 192.168.100.138 to perform a service version sc
 #### Tools Used:
 - Metasploit Framework
 - Nmap
-- Hydra
 - Python 3 with Paramiko library
     
 ---
