@@ -96,26 +96,25 @@ Fail2Ban Installed
 
 Deployed on Metasploitable3
 
-✅ Done
+✅ Completed
 
 Jail Configured & Active
 
 Monitoring auth.log and banning on failures
 
-✅ Done
+✅ Completed
 
 Attack Simulated Again
 
 IP exceeded retry threshold
 
-✅ Done
+✅ Triggered
 
 IP Successfully Banned
 
-SSH refused connection
+SSH access refused from attacker's IP
 
 ✅ Verified
-
 📌 Conclusion
 
 By deploying Fail2Ban, we successfully protected the SSH service on Metasploitable3 from brute-force attacks. This reactive security control monitors login attempts and automatically bans malicious IPs, preventing further intrusion attempts.
