@@ -13,18 +13,20 @@ In this phase, we configured two virtual environments to simulate an attack scen
 
 ### 🖥 Victim Environment: Metasploitable3
 - **Platform:** VirtualBox on Windows
-- **IP Adress**: 192.168.56.101
-  ![لقطة شاشة 2025-04-29 225928](https://github.com/user-attachments/assets/3f0d03ed-c30f-46d7-a50d-3b23d42c9405)
+- **IP Adress**: 192.168.100.138
+  ![لقطة شاشة 2025-05-02 175018](https://github.com/user-attachments/assets/94942fcc-b660-42e3-8962-667f8791f449)
+
 
 -**Vulnerable Services Running:**
-We executed the command nmap -sV 192.168.56.101 to perform a service version scan on the target machine. This allowed us to enumerate the active services and identify potential vulnerabilities, ultimately helping us select SSH as the target for exploitation.
-![لقطة شاشة 2025-04-29 230118](https://github.com/user-attachments/assets/20f0d103-8a20-4df2-9e9c-70f95b7f92df)
+We executed the command nmap -sV 192.168.100.138 to perform a service version scan on the target machine. This allowed us to enumerate the active services and identify potential vulnerabilities, ultimately helping us select SSH as the target for exploitation.
+
+![لقطة شاشة 2025-05-02 174655](https://github.com/user-attachments/assets/557cb2b3-9eec-4926-a4d0-caa940052cd1)
 
 
 ### 💻 Attacker Environment: Kali Linuxs
 - **Platform:** VirtualBox on Windows
-- **IP Adress**: 192.168.56.102
-  ![لقطة شاشة 2025-04-29 230105](https://github.com/user-attachments/assets/aba89bfb-3d89-4f8a-a34e-79832e7815d6)
+- **IP Adress**: 192.168.100.133
+![لقطة شاشة 2025-05-02 174402](https://github.com/user-attachments/assets/663c2f26-6c43-4220-9bc8-1f94b2910df6)
 
 
 #### Tools Used:
@@ -50,15 +52,20 @@ Command used:
 ```
 nmap -sV 192.168.56.101
 ```
+![لقطة شاشة 2025-05-02 174655](https://github.com/user-attachments/assets/3e9d89d4-12de-4791-a8d7-7e17c015532c)
 
 ## Task 1.1: Compromise Using Metasploit
 
 Steps to exploit the SSH service:
-
+First: Create a file for usernames and passwords: 
+![لقطة شاشة 2025-05-02 181530](https://github.com/user-attachments/assets/103cc98c-6273-4264-be51-b00c8f8f042b)
+Then, we start to exploit: 
 1. Launch Metasploit:
    ```
    msfconsole
    ```
+   ![لقطة شاشة 2025-04-29 230224](https://github.com/user-attachments/assets/2c38ce71-aa71-4c33-abf3-d9fe9f5d8b15)
+
 2. Search for the SSH login module:
    ```
    search ssh_login
@@ -75,6 +82,8 @@ Steps to exploit the SSH service:
    run
    ```
 5. Successful login confirms service compromise.
+-Screen shot shown all the above steps:
+![لقطة شاشة 2025-05-02 174003](https://github.com/user-attachments/assets/66bba784-ed18-418d-b479-883ae5f121df)
 
 ## Task 1.2 – Compromise Using Custom Script
 
