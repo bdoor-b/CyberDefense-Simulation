@@ -10,12 +10,10 @@ Secure the SSH service on the victim machine (**Metasploitable3**) by using **Fa
 ## Vulnerability Overview
 
 - **Service Targeted**: SSH (Port 22)  
-- **Issue**: SSH was accessible using **password authentication**, making it vulnerable to brute-force attacks.
+- **Issue**: SSH was was publicly accessible, making it vulnerable to brute-force attacks.
 - **Initial Security Posture**: No control in place to block repeated failed login attempts.
 
 ![SSH Settings](https://github.com/user-attachments/assets/fec38019-9622-43ca-a7de-4fefcce2ff25)
-
-> Result: SSH allows both `publickey` and `password` authentication.
 
 ---
 
