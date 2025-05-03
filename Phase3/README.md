@@ -40,13 +40,13 @@ Applied changes by restarting SSH
 
 7️⃣ Confirm PublicKeyAuthentication is Enabled
 
-📸 7 Ensure that PubkeyAuthentication is set to yes.png
+![8](https://github.com/user-attachments/assets/b98d056d-47b0-4227-9191-acd784cba849)
 
 8️⃣ Validate Changes with Nmap
 
 Nmap confirms only publickey is supported now
+![9-2](https://github.com/user-attachments/assets/13cd12b9-29a8-4d9f-a834-4bbcbcbe660c)
 
-📸 9 using nmap to verify security status (only using publickey) AFTER.png
 
 9️⃣ Confirmed SSH Rejects Password Logins
 
