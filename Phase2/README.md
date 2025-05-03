@@ -7,7 +7,7 @@
 | Component        | Details                             |
 | ---------------- | ----------------------------------- |
 | SIEM Tool        | Splunk Enterprise                   |
-| Victim Machine   | Metasploitable3 (`192.168.100.133`) |
+| Victim Machine   | Metasploitable3 (`192.168.100.138`) |
 | Attacker Machine | Kali Linux (hosting Splunk server)  |
 
 ---
