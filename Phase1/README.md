@@ -1,6 +1,3 @@
-# Phase 1 Work
----
-
 # Phase 1: Setup and Compromise the Service
 
 ## Overview
