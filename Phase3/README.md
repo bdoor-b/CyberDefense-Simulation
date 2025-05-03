@@ -19,22 +19,23 @@ Result: SSH allows publickey and password authentication.
 🔧 Step-by-Step: Fail2Ban Defense Implementation
 
 1️⃣ Install Fail2Ban
-
+```
 sudo apt install fail2ban -y
+```
 ![2](https://github.com/user-attachments/assets/c40cda87-ad96-4d56-ba43-afd5c0a3d07b)
 
 
 2️⃣ Copy Default Configuration
-
+```
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-
+```
 ![4](https://github.com/user-attachments/assets/5c5604fd-eb98-436a-b649-24e8dcd1efc7)
 
 
 3️⃣ Configure SSH Jail Settings
-
-File: /etc/fail2ban/jail.local
-
+```
+sudo nano /etc/fail2ban/jail.local
+```
 [sshd]
 enabled = true
 port = ssh
@@ -43,17 +44,18 @@ logpath = /var/log/auth.log
 maxretry = 6
 findtime = 600
 bantime = 600
-![5](https://github.com/user-attachments/assets/1ea95e03-2603-46a2-81de-123e378aed9c)
 
+![5](https://github.com/user-attachments/assets/1ea95e03-2603-46a2-81de-123e378aed9c)
 
 ![6](https://github.com/user-attachments/assets/0c14c455-54f2-45b9-a018-7cdece586a1f)
 
 
 4️⃣ Restart and Verify Fail2Ban
-
+```
 sudo service fail2ban restart
 sudo fail2ban-client status
 sudo fail2ban-client status sshd
+```
 ![7](https://github.com/user-attachments/assets/98a128a1-2069-4a8e-8b7e-970ff1d4cd43)
 
 
