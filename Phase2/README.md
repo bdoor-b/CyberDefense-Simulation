@@ -47,29 +47,31 @@ This output confirms that logs from the victim are actively being forwarded to t
 
 ---
 
-## ✅ Task 2: Visualize Attacks and Analyze Behavior
+## Task 2: Visualize Attacks and Analyze Behavior
 
-### 🔍 Attack Overview
+### Attack Overview
 
 The victim (Metasploitable3) was subjected to a brute-force SSH attack using a custom Python script. The attack attempted multiple username-password combinations until access was gained.
 
 ---
 
-### 🔑 Detection and Analysis
+### Detection and Analysis
 
 #### Splunk Search Query Used:
 
 ```spl
 index=* source="/var/log/auth.log" ("Failed password" OR "Accepted password")
 ```
+![لقطة شاشة 2025-05-02 183845](https://github.com/user-attachments/assets/7722c254-c7db-473a-ba27-98d94314fde5)
 
 ---
 
-### 📸 Screenshot 3 – Brute-force Attempt Visualization
+### Screenshot 3 – Brute-force Attempt Visualization
+Shows multiple `Failed password` attempts and one successful `Accepted password` for user `vagrant`, confirming the brute-force succeeded.
 
-![Screenshot 3](./screenshots/ssh-logs.png)
 
-> Shows multiple `Failed password` attempts and one successful `Accepted password` for user `vagrant`, confirming the brute-force succeeded.
+![لقطة شاشة 2025-05-02 183908](https://github.com/user-attachments/assets/cb5f8abe-561a-40a4-af00-8e7fa2ad7a4d)
+
 
 ---
 
@@ -77,11 +79,9 @@ index=* source="/var/log/auth.log" ("Failed password" OR "Accepted password")
 
 After successful SSH access, the attacker escalated privileges using `sudo` to run administrative commands.
 
-#### 📸 Screenshot 4 – `sudo` Log Entry (Privilege Escalation)
+####  Screenshot 4 – `sudo` Log Entry (Privilege Escalation)
 
-![Screenshot 4](./screenshots/sudo-command.png)
-
-> The attacker used `sudo` to execute a command with root access, indicating post-exploitation actions.
+The attacker used `sudo` to execute a command with root access, indicating post-exploitation actions.
 
 ---
 
