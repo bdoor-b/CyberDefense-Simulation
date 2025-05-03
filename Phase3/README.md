@@ -1,87 +1,39 @@
-Step 1: Change SSH Configuration
+**Defensive Strategy Proposal: Using Fail2Ban to Secure SSH**
 
-1️⃣ Using Nmap to Verify Security Status (Before)
+ Objective
 
-Nmap scan confirms that both password and publickey authentication methods were supported.
-![1](https://github.com/user-attachments/assets/31e32c09-a641-4bf1-b742-6dad7ff8210f)
+To secure the SSH service on the victim machine (Metasploitable3) by using Fail2Ban as a defensive mechanism to detect and block brute-force SSH attacks.
 
-2️⃣ SSH Connection Works (Before Defense)
+ Vulnerability Overview
 
-Successful SSH login using valid credentials (vagrant:vagrant)
+Service Targeted: SSH (port 22)
 
-![2](https://github.com/user-attachments/assets/a75b5e34-fda2-4a7a-8ddf-0604d3a3752d)
+Issue: SSH was accessible using password authentication, making it vulnerable to brute-force attacks.
 
-3️⃣ Open SSH Configuration File
-
-Edited using sudo nano /etc/ssh/sshd_config
-
-![3](https://github.com/user-attachments/assets/9e2b070b-3fa2-49dc-b1ca-2a73d0e7c68d)
-
-4️⃣ Check for PasswordAuthentication Line
-
-Located the line PasswordAuthentication yes
-
-![4](https://github.com/user-attachments/assets/788078d5-a8cb-4acf-9064-756a6b6c854a)
-![5](https://github.com/user-attachments/assets/4c3c046d-b5ff-4647-bc71-82d61214a07b)
+Initial Security Posture: No controls in place to block repeated failed login attempts.
+![1](https://github.com/user-attachments/assets/fec38019-9622-43ca-a7de-4fefcce2ff25)
 
 
-5️⃣ Disable PasswordAuthentication
+Result: SSH allows publickey and password authentication.
 
-Changed setting to no
+🔧 Step-by-Step: Fail2Ban Defense Implementation
 
-![6](https://github.com/user-attachments/assets/115c9cc0-e22b-429b-9306-b5f5cccc0222)
+1️⃣ Install Fail2Ban
 
-
-6️⃣ Restart SSH Service
-
-Applied changes by restarting SSH
-
- ![7](https://github.com/user-attachments/assets/985473c7-8af1-4888-b2b4-95be7a6c25b7)
-
-7️⃣ Confirm PublicKeyAuthentication is Enabled
-
-![8](https://github.com/user-attachments/assets/b98d056d-47b0-4227-9191-acd784cba849)
-
-8️⃣ Validate Changes with Nmap
-
-Nmap confirms only publickey is supported now
+sudo apt install fail2ban -y
+![2](https://github.com/user-attachments/assets/c40cda87-ad96-4d56-ba43-afd5c0a3d07b)
 
 
-![9-2](https://github.com/user-attachments/assets/13cd12b9-29a8-4d9f-a834-4bbcbcbe660c)
+2️⃣ Copy Default Configuration
+
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+
+![4](https://github.com/user-attachments/assets/5c5604fd-eb98-436a-b649-24e8dcd1efc7)
 
 
-9️⃣ Confirmed SSH Rejects Password Logins
+3️⃣ Configure SSH Jail Settings
 
-Even correct credentials are rejected after password login is disabled
-
-📸 8 we got failed even though it used the correct username and password (vagrant).png
-📸 10 we can see clearly that PasswordAuthentication no.png
-📸 8 confirms that password authentication is disabled, and only key-based logins are allowed.png
-
-✅ Result: Password-based brute force attacks are no longer effective.
-
-🛡️ Step 2: Fail2Ban Deployment
-
-1️⃣ Scan Before Fail2Ban
-
-Nmap reveals open services including SSH
-![1](https://github.com/user-attachments/assets/e20a26f2-e003-4f22-a1d2-f0ca15182cb6)
-
-
-2️⃣ Install Fail2Ban
-
-Installed via sudo apt install fail2ban -y
-![2](https://github.com/user-attachments/assets/00347e18-c8ae-41b0-a5b4-e0f1bfef4492)
-
-
-3️⃣ Copy Default Config & Edit jail.local
-
-Used nano to configure jail settings
-
-📸 3 Copy Default Configuration.png
-📸 4 after running nano.png
-
-4️⃣ Apply Filter and Ban Settings
+File: /etc/fail2ban/jail.local
 
 [sshd]
 enabled = true
@@ -91,63 +43,81 @@ logpath = /var/log/auth.log
 maxretry = 6
 findtime = 600
 bantime = 600
+![5](https://github.com/user-attachments/assets/1ea95e03-2603-46a2-81de-123e378aed9c)
 
-📸 5 ensure that it is enabled and added findtime and bantime=10 min.png
 
-5️⃣ Restart and Verify Functionality
+![6](https://github.com/user-attachments/assets/0c14c455-54f2-45b9-a018-7cdece586a1f)
 
-📸 6 restarting and checking everything works.png
 
-6️⃣ Simulate Attack
+4️⃣ Restart and Verify Fail2Ban
 
-Re-executed brute-force attack from Phase 1
+sudo service fail2ban restart
+sudo fail2ban-client status
+sudo fail2ban-client status sshd
+![7](https://github.com/user-attachments/assets/98a128a1-2069-4a8e-8b7e-970ff1d4cd43)
 
-📸 7 attacking using the attack from phase 1.png
 
-7️⃣ Attacker Banned
+🧪 Testing the Defense
 
-Fail2Ban detected the failed logins and banned the attacker's IP
+🔁 Re-launch the Attack
 
-📸 8 it banned kali ip address.png
+The same brute-force script from Phase 1 was re-executed.
 
-8️⃣ SSH No Longer Accessible from Banned Host
+After several failed attempts, Fail2Ban detected and banned the attacker's IP.
+![8](https://github.com/user-attachments/assets/010bb864-69a3-44c2-9875-a2986329a03b)
 
-📸 9 ssh port is no longer accessable.png
 
-✅ Result: Brute-force attempts are blocked after exceeding max retries.
+![9](https://github.com/user-attachments/assets/62b3ae53-6df2-4842-a9ca-05b508dc953c)
+
+
+❌ SSH Access Denied After Ban
+
+SSH port becomes inaccessible from the attacker’s IP.
+
+Confirms that Fail2Ban actively blocked the brute-force attempt.
+
+![10](https://github.com/user-attachments/assets/86263142-1850-4f14-8d5c-05d739f44e50)
 
 ✅ Results Summary
 
 Phase
 
-Objective
+Description
 
 Status
 
-SSH Configuration Hardening
+Vulnerability Identified
 
-Disabled password-based logins
+SSH with password login exposed
 
-✅ Success
+✅ Detected
 
-Fail2Ban Setup
+Fail2Ban Installed
 
-Block repeated brute-force attempts
+Deployed on Metasploitable3
 
-✅ Success
+✅ Done
 
-After Attack Retest
+Jail Configured & Active
 
-Attacker blocked or denied
+Monitoring auth.log and banning on failures
 
-✅ Success
+✅ Done
+
+Attack Simulated Again
+
+IP exceeded retry threshold
+
+✅ Done
+
+IP Successfully Banned
+
+SSH refused connection
+
+✅ Verified
 
 📌 Conclusion
 
-This phase demonstrated two layered defenses:
+By deploying Fail2Ban, we successfully protected the SSH service on Metasploitable3 from brute-force attacks. This reactive security control monitors login attempts and automatically bans malicious IPs, preventing further intrusion attempts.
 
-Hardening SSH Configuration to eliminate password-based authentication.
-
-Deploying Fail2Ban to dynamically block attackers based on failed login attempts.
-
-Together, these defenses achieved complete mitigation of the brute-force vulnerability, satisfying all project deliverables with clear before-and-after evidence.
+The test results clearly show that after exceeding the allowed login failures, the attacker's IP was banned and SSH access was blocked — fully mitigating the threat.
