@@ -15,24 +15,29 @@
 1. **Installed Splunk Enterprise** on the attacker machine.
 2. **Installed Splunk Universal Forwarder** on the victim machine (Metasploitable3).
 3. **Configured log forwarding** of `/var/log/auth.log` using:
-
-   ```bash
-   sudo /opt/splunkforwarder/bin/splunk add monitor /var/log/auth.log
+Connect Forwarder to Splunk Server:
+   ```
    sudo /opt/splunkforwarder/bin/splunk add forward-server 192.168.100.133:9997
+   ```
+   Add Data Inputs (Log Files):
+   ```
+   sudo /opt/splunkforwarder/bin/splunk add monitor /var/log/auth.log
+   
    ```
 4. **Verified forwarding is active:**
 
-   ```bash
+   ```
    sudo /opt/splunkforwarder/bin/splunk list forward-server
    ```
 
 ---
 
 ### 📸 Screenshot 1 – Forwarder Integration Confirmation
+This output confirms that logs from the victim are actively being forwarded to the Splunk SIEM on port `9997`
+![لقطة شاشة 2025-05-02 175135](https://github.com/user-attachments/assets/953d7e91-b8bc-4435-838b-20316ae999cb)
 
-![Screenshot 1](./screenshots/forwarder-confirmation.png)
 
-> This output confirms that logs from the victim are actively being forwarded to the Splunk SIEM on port `9997`.
+
 
 ---
 
