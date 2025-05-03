@@ -39,7 +39,7 @@ This output confirms that logs from the victim are actively being forwarded to t
 
 ---
 
-### Screenshot 2 – Raw Log Events from /var/log/auth.log
+###  Raw Log Events from /var/log/auth.log
 Log data from the victim successfully appears in Splunk, including authentication attempts, confirming full log integration.
 
 ![لقطة شاشة 2025-05-02 173814](https://github.com/user-attachments/assets/c7ed600d-5ecf-4fdd-a69c-0f6a9b0642fc)
@@ -69,7 +69,7 @@ index=* source="/var/log/auth.log" ("Failed password" OR "Accepted password")
 
 ---
 
-### Screenshot 3 – Brute-force Attempt Visualization
+### Brute-force Attempt Visualization
 Here we can notice multiple `Failed password` attempts and one successful `Accepted password` for user `vagrant`, confirming the brute-force succeeded.
 
 
