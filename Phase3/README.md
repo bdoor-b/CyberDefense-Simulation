@@ -90,17 +90,6 @@ SSH became inaccessible from the banned attacker's IP, confirming the defense wo
 
 ---
 
-## Results Summary
-
-| Phase                  | Description                                | Status      |
-|------------------------|--------------------------------------------|-------------|
-| Vulnerability Identified | SSH with password login exposed          |  Detected |
-| Fail2Ban Installed     | Deployed on Metasploitable3                | Completed |
-| Jail Configured & Active | Monitoring auth.log for failures        | Completed |
-| Attack Simulated Again | IP exceeded retry threshold                | Triggered |
-| IP Successfully Banned | SSH access refused from attacker's IP     | Verified  |
-
----
 
 ## Conclusion
 
