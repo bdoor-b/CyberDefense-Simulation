@@ -27,8 +27,8 @@ We executed the command nmap -sV 192.168.100.138 to perform a service version sc
 ![لقطة شاشة 2025-05-02 174402](https://github.com/user-attachments/assets/663c2f26-6c43-4220-9bc8-1f94b2910df6)
 
 
-###Ping from kali to Metaspotable is Sucessful 
-###Ping from Metaspotable to kali is Sucessful 
+***Ping from kali to Metaspotable is Sucessful***
+***Ping from Metaspotable to kali is Sucessful*** 
 
 
 #### Tools Used:
