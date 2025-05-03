@@ -30,9 +30,7 @@ Connect Forwarder to Splunk Server:
    sudo /opt/splunkforwarder/bin/splunk list forward-server
    ```
 
----
-
-### 📸 Screenshot 1 – Forwarder Integration Confirmation
+### Forwarder Integration Confirmation
 This output confirms that logs from the victim are actively being forwarded to the Splunk SIEM on port `9997`
 ![لقطة شاشة 2025-05-02 175135](https://github.com/user-attachments/assets/953d7e91-b8bc-4435-838b-20316ae999cb)
 
