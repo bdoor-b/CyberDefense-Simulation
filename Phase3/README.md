@@ -1,13 +1,13 @@
 
-# 🛡️ Phase 3: Defensive Strategy Proposal: Using Fail2Ban to Secure SSH
+# Phase 3: Defensive Strategy Proposal: Using Fail2Ban to Secure SSH
 
-## 🎯 Objective
+## Objective
 
 Secure the SSH service on the victim machine (**Metasploitable3**) by using **Fail2Ban** to detect and block brute-force SSH attacks.
 
 ---
 
-## 🔍 Vulnerability Overview
+## Vulnerability Overview
 
 - **Service Targeted**: SSH (Port 22)  
 - **Issue**: SSH was accessible using **password authentication**, making it vulnerable to brute-force attacks.
@@ -19,9 +19,9 @@ Secure the SSH service on the victim machine (**Metasploitable3**) by using **Fa
 
 ---
 
-## 🔧 Step-by-Step: Fail2Ban Defense Implementation
+## Step-by-Step: Fail2Ban Defense Implementation
 
-### 1️⃣ Install Fail2Ban
+### Install Fail2Ban
 ```bash
 sudo apt install fail2ban -y
 ```
@@ -29,7 +29,7 @@ sudo apt install fail2ban -y
 
 ---
 
-### 2️⃣ Copy Default Configuration
+### Copy Default Configuration
 ```bash
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
@@ -37,7 +37,7 @@ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 
 ---
 
-### 3️⃣ Configure SSH Jail Settings
+### Configure SSH Jail Settings
 ```bash
 sudo nano /etc/fail2ban/jail.local
 ```
@@ -58,7 +58,7 @@ Edit the `[sshd]` section to enable jail and define settings:
 
 ---
 
-### 4️⃣ Restart and Verify Fail2Ban
+### Restart and Verify Fail2Ban
 ```bash
 sudo service fail2ban restart
 sudo fail2ban-client status
@@ -68,9 +68,9 @@ sudo fail2ban-client status sshd
 
 ---
 
-## 🧪 Testing the Defense
+## Testing the Defense
 
-### 🔁 Re-launch the Brute-Force Attack
+### Re-launch the Brute-Force Attack
 
 Used the same brute-force script from Phase 1.  
 After exceeding `maxretry`, **Fail2Ban** detected the attack and **banned the attacker's IP**.
@@ -84,7 +84,7 @@ Check status again:
 
 ---
 
-### ❌ SSH Access Denied
+### SSH Access Denied
 
 SSH became inaccessible from the banned attacker's IP, confirming the defense worked as intended.
 
@@ -92,19 +92,19 @@ SSH became inaccessible from the banned attacker's IP, confirming the defense wo
 
 ---
 
-## ✅ Results Summary
+## Results Summary
 
 | Phase                  | Description                                | Status      |
 |------------------------|--------------------------------------------|-------------|
-| Vulnerability Identified | SSH with password login exposed          | ✅ Detected |
-| Fail2Ban Installed     | Deployed on Metasploitable3                | ✅ Completed |
-| Jail Configured & Active | Monitoring auth.log for failures        | ✅ Completed |
-| Attack Simulated Again | IP exceeded retry threshold                | ✅ Triggered |
-| IP Successfully Banned | SSH access refused from attacker's IP     | ✅ Verified  |
+| Vulnerability Identified | SSH with password login exposed          |  Detected |
+| Fail2Ban Installed     | Deployed on Metasploitable3                | Completed |
+| Jail Configured & Active | Monitoring auth.log for failures        | Completed |
+| Attack Simulated Again | IP exceeded retry threshold                | Triggered |
+| IP Successfully Banned | SSH access refused from attacker's IP     | Verified  |
 
 ---
 
-## 📌 Conclusion
+## Conclusion
 
 By deploying **Fail2Ban**, we successfully protected the SSH service on **Metasploitable3** from brute-force attacks.  
 This **reactive control** monitored login attempts and automatically banned malicious IPs, blocking further intrusion attempts.
