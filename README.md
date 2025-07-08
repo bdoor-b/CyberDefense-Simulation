@@ -14,8 +14,8 @@ This project for ICS344 focuses on simulating a real-world cybersecurity scenari
 
 
 ## Team Members
-- **Student 1 ID:** Malath Alhashem - 202174410
-- **Student 2 ID:** Budoor Alshehri - 202177210
+- **Student 1 ID:** Malath Alhashem - 
+- **Student 2 ID:** Budoor Alshehri - 
 
 
 
