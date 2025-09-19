@@ -13,9 +13,6 @@ This project for ICS344 focuses on simulating a real-world cybersecurity scenari
 - Phase 3 (Common) – Both of us collaborated on defensive strategy development 
 
 
-## Team Members
-- **Student 1 ID:** Malath Alhashem - 
-- **Student 2 ID:** Budoor Alshehri - 
 
 
 
